@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JustStreamIt</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <img class="header_logo" src="images/logo2.png" alt="logo de VAD" />
+      <h1 class="main_title">Vidéos à la demande</h1>
+    </header>
+
+    <main>
+      <section id="top_movie" class="top_movie">
+        <h2 class="Titres_H2">Best Movie</h2>
+        <div class="top_movie_infos">
+          <img id="top-movie-img" src="#" alt="Best Movie image" />
+          <h3 id="top-movie-title"></h3>
+          <p id="top-movie-description"></p>
+          <div class="bestbtn">
+            <button id="myModalBtn" class="button">Details</button>
+          </div>
+          <p class="modal">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium
+            assumenda laborum magnam. Delectus hic molestias minima pariatur ex
+            minus, ipsum temporibus facilis a vel eius, numquam velit rerum,
+            odio et!
+          </p>
+        </div>
+      </section>
+
+      <section id="best_movies" class="best_movies">
+        <h2 class="Titres_H2">Best Rated Movies</h2>
+        <div class="movies-grid">
+          <div id="column1" class="column"></div>
+          <div id="column2" class="column"></div>
+          <div id="column3" class="column"></div>
+        </div>
+      </section>
+
+      <section id="first_category" class="comedy">
+        <h2 class="Titres_H2">Best Comedy</h2>
+        <div class="movies-grid">
+          <div id="comcolumn1" class="column"></div>
+          <div id="comcolumn2" class="column"></div>
+          <div id="comcolumn3" class="column"></div>
+        </div>
+      </section>
+
+      <section id="second_category" class="fantasy">
+        <h2 class="Titres_H2">Best Fantasy Movies</h2>
+        <div class="movies-grid">
+          <div id="fancolumn1" class="column"></div>
+          <div id="fancolumn2" class="column"></div>
+          <div id="fancolumn3" class="column"></div>
+        </div>
+      </section>
+
+      <section id="other_category" class="Other">
+        <div class="menu_genres">
+          <h2 class="Titres_H2 genre_h2">Others Categories</h2>
+          <nav class="genres" aria-label="genre selection">
+            <ul>
+              <li class="deroulant">
+                <label for="categories"> &ensp;</label>
+                <select name="categories" id="categories"></select>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+      <section id="movies_section">
+        <div class="column" id="column1"></div>
+        <div class="column" id="column2"></div>
+        <div class="column" id="column3"></div>
+      </section>
+    </main>
+
+    <!-- Trigger/ Open The Modal
+    <button id="myModalBtn">Open Modal</button>
+     Modal content 
+    <div id="modalContainer" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle">Title</h2>
+        <p id="modalDescription"></p>
+        <img id="modalImage" src="empty" alt="Movie Image" />
+        <strong>Release Date:</strong> <span id="modalReleaseDate"></span>
+        </p>
+        <p><strong>Genre:</strong> <span id="modalGenre"></span></p>
+        <p>
+        <p><strong>Rated:</strong> <span id="modalRated"></span></p>
+        <p><strong>Duration:</strong> <span id="modalDuration"></span></p>
+        <p><strong>Country:</strong> <span id="modalCountry"></span></p>
+        <p><strong>IMDb Score:</strong> <span id="modalImdbScore"></span></p>
+        <p><strong>Director:</strong> <span id="modalDirector"></span></p>
+        <p><strong>Sumary:</strong> <span id="modalSumary"></span></p>
+        <p><strong>Actors:</strong> <span id="modalActors"></span></p>
+        <p><strong>Box Office:</strong> <span id="modalBoxOffice"></span></p> 
+      </div>
+    </div> -->
+
+    <footer>
+      <p>© 2024 Just Stream It. Tous droits réservés.</p>
+    </footer>
+  </body>
+</html>

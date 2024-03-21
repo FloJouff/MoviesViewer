@@ -1,0 +1,352 @@
+/* Réinitialisation des styles par défaut */
+* {
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    position: center;
+    width: 90%;
+    font-family: 'Oswald';
+    
+  }
+
+  /* Styles pour le header */
+header {
+  background-color: #61787F;
+  color:#fff;
+  padding: 20px;
+  display: grid;
+  font-weight: 300;
+  font-size: 40px;
+  width: 75%;
+  height: auto;
+  border-top: 1px black solid;
+  border-left: 1px black solid;
+  border-right: 1px black solid;
+  gap: 10px;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+.header_logo {
+  align-self: start;
+  max-width: 100%;
+  height: auto;
+}
+
+.main_title {
+  font-size: 40px;
+} 
+
+/* Styles pour le contenu principal */
+main {
+  padding: 10px;
+} 
+
+.titre_H2 {
+  font-weight: 600;
+  font-size: 48px;
+}
+section {
+  position:center;
+  margin-bottom: 10px;
+}
+
+/* Style pour le meilleur film */
+.top_movie_infos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 6px black solid;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+  font-size: 28px;
+  font-weight: 200;
+}
+#top-movie-img {
+  grid-row: 1/4;
+  height: auto;
+}
+
+#top-movie-title{
+  font-size: 48px;
+  font-weight: 600;
+  grid-column:2/3 ;
+  grid-row:1/2 ;
+}
+
+.bestbtn {
+  display: flex;
+  justify-items: right;
+}
+.button{
+  justify-items: end;
+  justify-self: end;
+}
+
+/* Style pour la categorie best movies */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  justify-items: center;
+}
+
+.column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  width: 80%;
+  height: 30%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 150%; /* Adjust this value to control the aspect ratio of the images */
+  overflow: hidden;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.overlay button {
+  background-color: rgb(19, 18, 18, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  width: 65px;
+  height: 30px;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+/* Button Best movie*/
+
+button {
+  background-color: rgb(250, 11, 11);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  width: 166px;
+  height: 68px;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+button:hover {
+  background-color: #d8422e;
+  border: none;
+  color: white;
+}
+
+button:active {
+  transform: scale(1.05);
+  transition: transform 100ms ease-in-out;
+}
+
+/* Button other movie*/
+
+.btn {
+  background-color: rgb(19, 18, 18, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  width: 65px;
+  height: 30px;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom:0 ;
+  right: 0;
+}
+
+
+/* Menu déroulant */
+/* Styles pour le menu déroulant */
+.genres select {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #000000;
+  width: 200px;
+}
+
+/* Styles pour les options du menu déroulant */
+.genres select option {
+  padding: 8px;
+}
+
+/* Styles pour la section des films */
+#movies_section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.menu-genres {
+  display: flex;
+  align-self: center;
+} 
+
+/*
+.Titre_h2 .genre_h2 {
+  margin-right: 10px;
+}
+
+.deroulant{
+  width: 40%;
+  margin: 0 auto ;
+  background-color: rgb(255, 255, 255);
+  top: 0px;
+  border: 1px solid black;
+}
+
+.genres ul{
+  list-style-type: none;
+}
+
+nav ul li{
+  float: center;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+
+nav ul::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+nav a{
+  display: block;
+  text-decoration: none;
+  color: black;
+  border-bottom: 2px solid transparent;
+  padding: 20px 0px;
+}
+
+nav a:hover{
+  color: rgb(6, 6, 6);
+  border-bottom: 2px solid rgb(18, 17, 17);
+}
+
+.sous{
+  display: none;
+  box-shadow: 0px 1px 2px #CCC;
+  background-color: rgb(255, 254, 254);
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+  
+}
+nav > ul li:hover .sous{
+  display: block;
+}
+.sous li{
+  float: none;
+  width: 100%;
+  text-align: top;
+  border: 1px solid black;
+}
+
+.sous li input{
+  justify-items: center;
+}
+.sous a{
+  padding: 0px;
+  border-bottom: none;
+}
+.sous a:hover{
+  border-bottom: none;
+  background-color: RGBa(200,200,200,0.3);
+}
+.deroulant > a::after{
+  content:" ▼";
+  font-size: 12px;
+} */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+#myModalBtn:click
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+  /* Styles pour le footer */
+  footer {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+    width: 75%;
+  }
