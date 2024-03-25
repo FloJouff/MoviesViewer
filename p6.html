@@ -26,9 +26,7 @@
           <img id="top-movie-img" src="#" alt="Best Movie image" />
           <h3 id="top-movie-title"></h3>
           <p id="top-movie-description"></p>
-          <div class="bestbtn">
-            <button id="myModalBtn" class="button">Details</button>
-          </div>
+          <button id="myModalBtn" class="bestbtn">Details</button>
           <p class="modal">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium
             assumenda laborum magnam. Delectus hic molestias minima pariatur ex
@@ -76,39 +74,40 @@
               </li>
             </ul>
           </nav>
+          <div class="movies-grid">
+            <div class="column" id="genreColumn1"></div>
+            <div class="column" id="genreColumn2"></div>
+            <div class="column" id="genreColumn3"></div>
+          </div>
         </div>
-      </section>
-
-      <section id="movies_section">
-        <div class="column" id="column1"></div>
-        <div class="column" id="column2"></div>
-        <div class="column" id="column3"></div>
       </section>
     </main>
 
-    <!-- Trigger/ Open The Modal
-    <button id="myModalBtn">Open Modal</button>
-     Modal content 
+    <!--Modal content -->
     <div id="modalContainer" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="modalTitle">Title</h2>
-        <p id="modalDescription"></p>
-        <img id="modalImage" src="empty" alt="Movie Image" />
-        <strong>Release Date:</strong> <span id="modalReleaseDate"></span>
-        </p>
-        <p><strong>Genre:</strong> <span id="modalGenre"></span></p>
-        <p>
-        <p><strong>Rated:</strong> <span id="modalRated"></span></p>
-        <p><strong>Duration:</strong> <span id="modalDuration"></span></p>
-        <p><strong>Country:</strong> <span id="modalCountry"></span></p>
-        <p><strong>IMDb Score:</strong> <span id="modalImdbScore"></span></p>
-        <p><strong>Director:</strong> <span id="modalDirector"></span></p>
-        <p><strong>Sumary:</strong> <span id="modalSumary"></span></p>
-        <p><strong>Actors:</strong> <span id="modalActors"></span></p>
-        <p><strong>Box Office:</strong> <span id="modalBoxOffice"></span></p> 
+        <div class="movie-infos">
+          <h3 id="modalTitle">Title</h3>
+          <p>
+            <strong></strong> <span id="modalReleaseDate"></span
+            ><strong>-</strong> <span id="modalGenre"></span>
+          </p>
+          <p>
+            <strong>Rated:</strong> <span id="modalRated"></span
+            ><span id="modalDuration"></span><span id="modalCountry"></span>
+          </p>
+          <p><strong>IMDb Score:</strong> <span id="modalImdbScore"></span></p>
+          <p><strong>Box Office:</strong> <span id="modalBoxOffice"></span></p>
+          <p><strong>Réalisé par:</strong> <span id="modalDirector"></span></p>
+        </div>
+        <img id="modalImage" src="" alt="Movie Image" />
+        <div class="modalDescription">
+          <p id="modalDescription"></p>
+          <p><strong>Avec:</strong> <span id="modalActors"></span></p>
+        </div>
+        <button class="close">Fermer</button>
       </div>
-    </div> -->
+    </div>
 
     <footer>
       <p>© 2024 Just Stream It. Tous droits réservés.</p>
