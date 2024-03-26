@@ -15,7 +15,9 @@
   </head>
   <body>
     <header>
-      <img class="header_logo" src="images/logo2.png" alt="logo de VAD" />
+      <div class="logo">
+        <img class="header_logo" src="images/logo2.png" alt="logo de VAD" />
+      </div>
       <h1 class="main_title">Vidéos à la demande</h1>
     </header>
 
@@ -26,13 +28,9 @@
           <img id="top-movie-img" src="#" alt="Best Movie image" />
           <h3 id="top-movie-title"></h3>
           <p id="top-movie-description"></p>
-          <button id="myModalBtn" class="bestbtn">Details</button>
-          <p class="modal">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium
-            assumenda laborum magnam. Delectus hic molestias minima pariatur ex
-            minus, ipsum temporibus facilis a vel eius, numquam velit rerum,
-            odio et!
-          </p>
+          <div class="btn-position">
+            <button id="myModalBtn" class="bestbtn">Details</button>
+          </div>
         </div>
       </section>
 
@@ -40,8 +38,13 @@
         <h2 class="Titres_H2">Best Rated Movies</h2>
         <div class="movies-grid">
           <div id="column1" class="column"></div>
+          <!-- <div class="hiddenElements"> -->
           <div id="column2" class="column"></div>
           <div id="column3" class="column"></div>
+          <!-- </div> -->
+        </div>
+        <div class="btn-container">
+          <button class="btn-voir-plus">Voir plus</button>
         </div>
       </section>
 
@@ -52,6 +55,9 @@
           <div id="comcolumn2" class="column"></div>
           <div id="comcolumn3" class="column"></div>
         </div>
+        <div class="btn-container">
+          <button class="btn-voir-plus">Voir plus</button>
+        </div>
       </section>
 
       <section id="second_category" class="fantasy">
@@ -61,11 +67,14 @@
           <div id="fancolumn2" class="column"></div>
           <div id="fancolumn3" class="column"></div>
         </div>
+        <div class="btn-container">
+          <button class="btn-voir-plus">Voir plus</button>
+        </div>
       </section>
 
       <section id="other_category" class="Other">
         <div class="menu_genres">
-          <h2 class="Titres_H2 genre_h2">Others Categories</h2>
+          <h2 class="Titres_H2 genre_h2">Other Categories</h2>
           <nav class="genres" aria-label="genre selection">
             <ul>
               <li class="deroulant">
@@ -74,11 +83,14 @@
               </li>
             </ul>
           </nav>
-          <div class="movies-grid">
-            <div class="column" id="genreColumn1"></div>
-            <div class="column" id="genreColumn2"></div>
-            <div class="column" id="genreColumn3"></div>
-          </div>
+        </div>
+        <div class="movies-grid">
+          <div id="genColumn1" class="column"></div>
+          <div id="genColumn2" class="column"></div>
+          <div id="genColumn3" class="column"></div>
+        </div>
+        <div class="btn-container">
+          <button class="btn-voir-plus">Voir plus</button>
         </div>
       </section>
     </main>

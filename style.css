@@ -3,8 +3,7 @@
     margin: 0;
     padding: 10px;
     box-sizing: border-box;
-    position: center;
-    width: 90%;
+    width: 100%;
     font-family: 'Oswald';
     
   }
@@ -17,7 +16,7 @@ header {
   display: grid;
   font-weight: 300;
   font-size: 40px;
-  width: 75%;
+  width: 100%;
   height: auto;
   border-top: 1px black solid;
   border-left: 1px black solid;
@@ -25,6 +24,27 @@ header {
   gap: 10px;
   grid-template-columns: auto 1fr;
   align-items: center;
+}
+
+@media screen and (max-width: 767px){
+  header h1{ 
+    display: none;
+  }
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo {
+    text-align: center;
+  }
+  .logo img {
+    height: 137px;
+    width: 300px;
+  }
+  .Titres_H2{
+    text-align: center;
+  } 
 }
 
 .header_logo {
@@ -46,10 +66,14 @@ main {
   font-weight: 600;
   font-size: 48px;
 }
-section {
-  position:center;
-  margin-bottom: 10px;
-}
+
+@media screen and (max-width: 767px){
+  .titre_H2 { font-size: 32px;};
+ }
+
+ @media screen and (min-width: 768px) and (max-width: 1023px) {
+  .titre_H2 { font-size: 40px;};
+  } 
 
 /* Style pour le meilleur film */
 .top_movie_infos {
@@ -64,6 +88,7 @@ section {
 #top-movie-img {
   grid-row: 1/4;
   height: auto;
+  width: 227px;
 }
 
 #top-movie-title{
@@ -73,9 +98,89 @@ section {
   grid-row:1/2 ;
 }
 
-.bestbtn {
+.btn-position {
   display: flex;
-  justify-items: right;
+  justify-content: right;
+}
+
+/* Version mobile */
+@media screen and (max-width: 767px) {
+  .top_movie_infos {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  #top-movie-img {
+    grid-row: 1;
+    width: 298px;
+    height: auto;
+    align-self:center;
+  }
+  #top-movie-title{
+    font-size: 32px;
+    font-weight: 600;
+    grid-row: 2;
+  }
+  #top-movie-description{
+    grid-row: 3;
+  }
+  .btn-position{
+    display: flex;
+    justify-content: center;
+  }
+  #myModalBtn{
+    width: 91px;
+    height: 40px;
+  }
+}
+
+/* Version tablette */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .top_movie_infos {
+    grid-template-columns: repeat(2, 1fr);
+  } 
+}
+
+/* Version ordinateur */
+@media screen and (min-width: 1024px) {
+  .top_movie_infos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+}
+/* Button Best movie*/
+.bestbtn {
+  background-color: rgb(250, 11, 11);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  width: 166px;
+  height: 68px;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+/* Version tablette */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .bestbtn {
+    width: 123px;
+    height: 49px;
+  }
+}
+
+button:hover {
+  background-color: #d8422e;
+  border: none;
+  color: white;
+}
+
+button:active {
+  transform: scale(1.05);
+  transition: transform 100ms ease-in-out;
 }
 
 /* Style pour les différentes categories  */
@@ -86,6 +191,19 @@ section {
   justify-items: center;
 }
 
+/* Version ordinateur */
+@media screen and (min-width: 1024px) {
+.movies-grid img {
+  width:300px ;
+}
+}
+
+/* Version tablette */
+/* @media screen and (min-width: 768px) and (max-width: 1023px) {
+  .movies-grid img {
+    width:300px ;
+  }
+} */
 .column {
   position: relative;
   display: flex;
@@ -97,22 +215,41 @@ section {
 .overlay {
   position: absolute;
   top: 15%;
-  left: 6%;
-  width: 79%;
+  left: 4%;
+  width: 92%;
   height: 30%;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 1;
+}
+/* Version ordinateur */
+@media screen and (min-width: 1024px) {
+  .overlay {
+    position: absolute;
+    top: 15%;
+    left: 6%;
+    width: 78%;
+    height: 30%;
+  }
+}
+
+/* Version tablette */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .overlay {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    width: 90%;
+    height: 30%;
+  }
 }
 
 .image-container {
   position: relative;
   width: 100%;
-  height: 0;
-  padding-bottom: 150%;
+  height: auto;
   overflow: hidden;
 }
 
@@ -139,31 +276,48 @@ section {
   bottom: 0;
   right: 0;
 }
-/* Button Best movie*/
-.bestbtn {
-  background-color: rgb(250, 11, 11);
-  color: white;
-  border: none;
-  border-radius: 25px;
-  width: 166px;
-  height: 68px;
-  cursor: pointer;
-  padding: 10px;
-  transition: all 0.2s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} 
 
-button:hover {
+.overlay button:hover {
   background-color: #d8422e;
   border: none;
   color: white;
 }
 
-button:active {
+.overlay button:active {
   transform: scale(1.05);
   transition: transform 100ms ease-in-out;
+}
+
+/* Version mobile */
+@media screen and (max-width: 767px) {
+  .movies-grid {
+    grid-template-columns:  1fr;
+  }
+
+  #column2, #column3, #comcolumn2, #comcolumn3, #fancolumn2, #fancolumn3, #genColumn2, #genColumn3{
+    display: none;
+  }
+}
+
+/* Version tablette */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #column3, #comcolumn3, #fancolumn3, #genColumn3 {
+    display: none;
+  } 
+  .btn-container {
+    display: flex;
+    align-self: center;
+  }
+}
+
+/* Version ordinateur */
+@media screen and (min-width: 1024px) {
+  .btn-container {
+    display:none;
+  }
 }
 
 /* Button other movie*/
@@ -186,6 +340,24 @@ button:active {
   right: 0;
 }
 
+
+.btn-voir-plus {
+  background-color: rgb(250, 11, 11);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  width: 214px;
+  height: 36px;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.2s;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 /* Menu déroulant */
 /* Styles pour le menu déroulant */
 .menu_genres{
@@ -203,9 +375,14 @@ button:active {
   width: 200px;
 }
 
+option {
+  list-style-type: none;
+}
+
 /* Styles pour les options du menu déroulant */
 .genres select option {
   padding: 8px; 
+  list-style-type: none;
 }
 
 /* The Modal (background) */
@@ -213,7 +390,7 @@ button:active {
   position: fixed;
   top: 0;
   left: 0;
-  width: 60%;
+  width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   display:none;
@@ -227,15 +404,16 @@ button:active {
   justify-items: center;
   background-color: #ffffff;
   padding: 20px;
-  max-width: 100%;
   max-height: auto;
   border-radius: 5px;
 }
 
-.modalImage img {
+#modalImage {
   border-radius: 10px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
   margin-right: 120px;
+  width: 227px;
+  height: 334;
 }
 
 .modalDescription{
@@ -290,3 +468,4 @@ button:active {
     text-align: center;
     width: 75%;
   }
+

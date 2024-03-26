@@ -202,13 +202,14 @@ function fetchGenres() {
       for(let i = 0; i < data.results.length; i++){
         const options = document.createElement('option');
         options.value = data.results[i]["id"];
-        options.textContent = data.results[i]["name"];
+        options.textContent = data.results[i].name;
         categoriesSelect.appendChild(options);  
       }
       // Écouter l'événement de changement de sélection du menu
       categoriesSelect.addEventListener('change', () => {
         const selectedGenreId = categoriesSelect.value;
-        fetchMoviesByGenre(selectedGenreId);
+        const selectedGenreText = categoriesSelect.options[categoriesSelect.selectedIndex].textContent;
+        fetchMoviesByGenre(selectedGenreId ,selectedGenreText);
       });
     
     })
@@ -218,16 +219,16 @@ function fetchGenres() {
 }
 
 // Récupérer les 6 premiers films de la catégorie sélectionnée depuis l'API
-function fetchMoviesByGenre(genre) {
-  const moviesUrl = `http://localhost:8000/api/v1/titles/?genre=${genre}&page_size=10&sort_by=-imdb_score`;
-  console.log(moviesUrl)
+function fetchMoviesByGenre(genreId, genreText) {
+  const moviesUrl = `http://localhost:8000/api/v1/titles/?genre=${genreText}&page_size=10&sort_by=-imdb_score`;
+
 
   fetch(moviesUrl)
     .then(response => response.json())
     .then(data => {
-      const genreColumn1 = document.getElementById('genreColumn1');
-      const genreColumn2 = document.getElementById('genreColumn2');
-      const genreColumn3 = document.getElementById('genreColumn3');
+      const genreColumn1 = document.getElementById('genColumn1');
+      const genreColumn2 = document.getElementById('genColumn2');
+      const genreColumn3 = document.getElementById('genColumn3');
 
       // Vider les colonnes existantes
       genreColumn1.innerHTML = '';
@@ -278,7 +279,7 @@ function fetchMoviesByGenre(genre) {
       }
     })
     .catch(error => {
-      console.error('Une erreur s\'est produite lors du chargement des images:', error);
+      console.error('En attente de la séléection dun genre pour le chargement des images:', error);
     });
 
 }
@@ -286,7 +287,6 @@ function fetchMoviesByGenre(genre) {
 // Appeler la fonction pour récupérer les genres de films et initialiser le menu déroulant
 fetchGenres();
 fetchMoviesByGenre();
-
 
 function openModal(id) {
 
@@ -301,10 +301,6 @@ function openModal(id) {
       modal.style.display = "none";
   }
 
-  window.onclick = function (event) {
-      if (event.target === modal)
-          modal.style.display = "none";
-  }
 }
 
 function fetchModalData(id) {
@@ -326,11 +322,11 @@ function fetchModalData(id) {
           if (typeof data["rated"] === 'string' || data["rated"] instanceof String)
               document.getElementById('modalRated').innerHTML = data["rated"];
           else
-              document.getElementById('modalRated').innerHTML = data["rated"] + "+";  // add "+" if age rating is a number
+              document.getElementById('modalRated').innerHTML = data["rated"] + "+";  
 
           const modalBoxOffice = document.getElementById('modalBoxOffice');
           if (data["worldwide_gross_income"] == null)
-              modalBoxOffice.innerHTML = "N/A";  // placeholder for unspecified box-office
+              modalBoxOffice.innerHTML = "N/A"; 
           else
               modalBoxOffice.innerHTML = data["worldwide_gross_income"] + " " + data["budget_currency"];
 
@@ -338,7 +334,21 @@ function fetchModalData(id) {
           if (regExp.test(data["long_description"]))
               document.getElementById('modalDescription').innerHTML = data["long_description"];
           else
-              document.getElementById('modalDescription').innerHTML = "N/A";  // placeholder for missing description
-
+              document.getElementById('modalDescription').innerHTML = "N/A"; 
       })
 }
+
+// Sélectionnez tous les boutons "Voir plus"
+const voirPlusButtons = document.querySelectorAll('.btn-voir-plus');
+const hiddenElements = document.querySelectorAll('.hiddenElements');
+
+voirPlusButtons.onclick = function () {
+  hiddenElements.style.display = "grid";
+}
+// voirPlusButtons.addEventListener('click', function() {
+//   if (hiddenElements.style.display === 'none') {
+//     hiddenElements.style.display = 'block';
+//   } else {
+//     hiddenElements.style.display = 'none';
+//   }
+// });
