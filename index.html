@@ -26,10 +26,12 @@
         <h2 class="Titres_H2">Best Movie</h2>
         <div class="top_movie_infos">
           <img id="top-movie-img" src="#" alt="Best Movie image" />
-          <h3 id="top-movie-title"></h3>
-          <p id="top-movie-description"></p>
-          <div class="btn-position">
-            <button id="myModalBtn" class="bestbtn">Details</button>
+          <div class="top-movie-datas">
+            <h3 id="top-movie-title"></h3>
+            <p id="top-movie-description"></p>
+            <div class="btn-position">
+              <button id="myModalBtn" class="bestbtn">Details</button>
+            </div>
           </div>
         </div>
       </section>
@@ -37,10 +39,10 @@
       <section id="best_movies" class="best_movies">
         <h2 class="Titres_H2">Best Rated Movies</h2>
         <div class="movies-grid">
-          <div id="column1" class="column"></div>
+          <div id="best-movies-column1" class="column"></div>
           <!-- <div class="hiddenElements"> -->
-          <div id="column2" class="column"></div>
-          <div id="column3" class="column"></div>
+          <div id="best-movies-column2" class="column"></div>
+          <div id="best-movies-column3" class="column"></div>
           <!-- </div> -->
         </div>
         <div class="btn-container">
@@ -51,21 +53,21 @@
       <section id="first_category" class="comedy">
         <h2 class="Titres_H2">Best Comedy</h2>
         <div class="movies-grid">
-          <div id="comcolumn1" class="column"></div>
-          <div id="comcolumn2" class="column"></div>
-          <div id="comcolumn3" class="column"></div>
+          <div id="comedy-column1" class="column"></div>
+          <div id="comedy-column2" class="column"></div>
+          <div id="comedy-column3" class="column"></div>
         </div>
         <div class="btn-container">
           <button class="btn-voir-plus">Voir plus</button>
         </div>
       </section>
 
-      <section id="second_category" class="fantasy">
-        <h2 class="Titres_H2">Best Fantasy Movies</h2>
+      <section id="second_category" class="scifi">
+        <h2 class="Titres_H2">Best Sci-Fi Movies</h2>
         <div class="movies-grid">
-          <div id="fancolumn1" class="column"></div>
-          <div id="fancolumn2" class="column"></div>
-          <div id="fancolumn3" class="column"></div>
+          <div id="Sci-Fi-column1" class="column"></div>
+          <div id="Sci-Fi-column2" class="column"></div>
+          <div id="Sci-Fi-column3" class="column"></div>
         </div>
         <div class="btn-container">
           <button class="btn-voir-plus">Voir plus</button>
@@ -76,12 +78,10 @@
         <div class="menu_genres">
           <h2 class="Titres_H2 genre_h2">Other Categories</h2>
           <nav class="genres" aria-label="genre selection">
-            <ul>
-              <li class="deroulant">
-                <label for="categories"> &ensp;</label>
-                <select name="categories" id="categories"></select>
-              </li>
-            </ul>
+            <div class="deroulant">
+              <label for="categories"> &ensp;</label>
+              <select name="categories" id="categories"></select>
+            </div>
           </nav>
         </div>
         <div class="movies-grid">
@@ -98,26 +98,38 @@
     <!--Modal content -->
     <div id="modalContainer" class="modal">
       <div class="modal-content">
-        <div class="movie-infos">
-          <h3 id="modalTitle">Title</h3>
-          <p>
-            <strong></strong> <span id="modalReleaseDate"></span
-            ><strong>-</strong> <span id="modalGenre"></span>
-          </p>
-          <p>
-            <strong>Rated:</strong> <span id="modalRated"></span
-            ><span id="modalDuration"></span><span id="modalCountry"></span>
-          </p>
-          <p><strong>IMDb Score:</strong> <span id="modalImdbScore"></span></p>
-          <p><strong>Box Office:</strong> <span id="modalBoxOffice"></span></p>
-          <p><strong>Réalisé par:</strong> <span id="modalDirector"></span></p>
+        <div class="data-img">
+          <div class="movie-infos">
+            <h3 id="modalTitle">Title</h3>
+            <p>
+              <strong></strong> <span id="modalReleaseDate"></span
+              ><strong>-</strong> <span id="modalGenre"></span>
+            </p>
+            <p>
+              <strong>Rated:</strong> <span id="modalRated"></span
+              ><span id="modalDuration"></span><span id="modalCountry"></span>
+            </p>
+            <p>
+              <strong>IMDb Score:</strong> <span id="modalImdbScore"></span>
+            </p>
+            <p>
+              <strong>Box Office:</strong> <span id="modalBoxOffice"></span>
+            </p>
+            <p>
+              <strong>Réalisé par:</strong> <span id="modalDirector"></span>
+            </p>
+          </div>
+          <div class="modalImg">
+            <img id="modalImage" src="" alt="Movie Image" />
+          </div>
         </div>
-        <img id="modalImage" src="" alt="Movie Image" />
         <div class="modalDescription">
           <p id="modalDescription"></p>
           <p><strong>Avec:</strong> <span id="modalActors"></span></p>
         </div>
-        <button class="close">Fermer</button>
+        <div class="modal-btn">
+          <button class="close">Fermer</button>
+        </div>
       </div>
     </div>
 
