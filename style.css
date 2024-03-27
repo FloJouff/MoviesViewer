@@ -191,6 +191,14 @@ button:active {
     #best-movies-column2, #best-movies-column3, #comedy-column2, #comedy-column3, #Sci-Fi-column2, #Sci-Fi-column3, #genColumn2, #genColumn3{
     display: none;
   }
+    .hiddenElements {
+      display:flex;
+      flex-direction: column;
+    }
+    .btn-container-tab {
+      display:none;
+    }
+  
 }
 
 /* Version tablette */
@@ -198,15 +206,25 @@ button:active {
   #best-movies-column3, #comedy-column3, #Sci-Fi-column3, #genColumn3 {
     display: none;
   }
-  .btn-container {
+  .hiddenElements2 {
+    display:flex;
+    flex-direction: column;
+  }
+  .btn-container-tab {
     display: flex;
     align-self: center;
+  }
+  .btn-container {
+    display:none;
   }
 }
 
 /* Version ordinateur */
 @media screen and (min-width: 1024px) {
   .btn-container {
+    display:none;
+  }
+  .btn-container-tab {
     display:none;
   }
   .movies-grid img {
@@ -324,6 +342,20 @@ button:active {
   align-items: center;
 }
 
+.btn-voir-plus-tab {
+  background-color: rgb(250, 11, 11);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  width: 214px;
+  height: 36px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* Menu déroulant */
 /* Styles pour le menu déroulant */
 .menu_genres{

@@ -231,18 +231,50 @@ function fetchModalData(id) {
 }
 
 // Sélectionnez tous les boutons "Voir plus"
-const voirPlusButtons = document.querySelectorAll('.btn-voir-plus');
+const voirPlusButtonsMob = document.querySelectorAll('.btn-voir-plus');
 const hiddenElements = document.querySelectorAll('.hiddenElements');
+const hiddenElements2 = document.querySelectorAll('.hiddenElements2');
+const movieGrid = document.querySelectorAll('.movies-grid');
 
-// voirPlusButtons.addEventListener('click', () => {
-//   hiddenElements.style.display = "flex"});
+voirPlusButtonsMob.forEach(button => {
+  button.addEventListener('click', () => {
+    hiddenElements.forEach(element => {
+      element.style.display = "flex";
+    });
+    hiddenElements2.forEach(element => {
+      element.style.display = "flex";
+    });
+    voirPlusButtonsMob.forEach(btn => {
+      btn.style.display = "none";
+    });
+    movieGrid.forEach(grid => {
+      grid.style.flexDirection ="column";
+    });
+  });
+});
+const voirPlusButtonsTab = document.querySelectorAll('.btn-voir-plus-tab');
+const columns = document.querySelectorAll('.column');
 
-
+voirPlusButtonsTab.forEach(button => {
+  button.addEventListener('click', () => {
+    hiddenElements2.forEach(element => {
+      element.style.display = "flex";
+    });
+    voirPlusButtonsTab.forEach(btn => {
+      btn.style.display = "none";
+    });
+    movieGrid.forEach(grid => {
+      grid.style.flexDirection ="column";
+    });
+    columns.forEach(col => {
+      col.style.flexDirection ="row";
+    });
+  });
+});
 
 getBestMovie()
 fetchMovies("best-movies", BEST_MOVIE_URL)
 fetchMovies("comedy", COMEDY_URL)
 fetchMovies("Sci-Fi", SCI_FI_URL)
-// Appeler la fonction pour récupérer les genres de films et initialiser le menu déroulant
 fetchGenres()
 fetchMoviesByGenre()
