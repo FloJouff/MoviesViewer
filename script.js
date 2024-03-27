@@ -93,7 +93,7 @@ function fetchGenres() {
         const options = document.createElement('option');
         options.value = data.results[i]["id"];
         options.textContent = data.results[i].name;
-        categoriesSelect.appendChild(options);  
+        categoriesSelect.appendChild(options); 
       }
       // Écouter l'événement de changement de sélection du menu
       categoriesSelect.addEventListener('change', () => {
@@ -235,6 +235,10 @@ const voirPlusButtonsMob = document.querySelectorAll('.btn-voir-plus');
 const hiddenElements = document.querySelectorAll('.hiddenElements');
 const hiddenElements2 = document.querySelectorAll('.hiddenElements2');
 const movieGrid = document.querySelectorAll('.movies-grid');
+const voirMoins = document.querySelectorAll('.btn-container-moins');
+const voirMoinsTab = document.querySelectorAll('.btn-container-moins-tab')
+const voirPlusTab = document.querySelectorAll('.btn-container-tab');
+const columns = document.querySelectorAll('.column');
 
 voirPlusButtonsMob.forEach(button => {
   button.addEventListener('click', () => {
@@ -250,10 +254,35 @@ voirPlusButtonsMob.forEach(button => {
     movieGrid.forEach(grid => {
       grid.style.flexDirection ="column";
     });
+    voirMoins.forEach(element => {
+      element.style.display = "flex";
+    });
   });
 });
+
+const voirMoinsButtonsMob = document.querySelectorAll('.btn-voir-moins');
+
+voirMoinsButtonsMob.forEach(button => {
+  button.addEventListener('click', () => {
+    hiddenElements.forEach(element => {
+      element.style.display = "none";
+    });
+    hiddenElements2.forEach(element => {
+      element.style.display = "none";
+    });
+    voirPlusButtonsMob.forEach(btn => {
+      btn.style.display = "flex";
+    });
+    movieGrid.forEach(grid => {
+      grid.style.flexDirection ="column";
+    });
+    voirMoins.forEach(element => {
+      element.style.display = "none";
+    });
+  });
+});
+
 const voirPlusButtonsTab = document.querySelectorAll('.btn-voir-plus-tab');
-const columns = document.querySelectorAll('.column');
 
 voirPlusButtonsTab.forEach(button => {
   button.addEventListener('click', () => {
@@ -268,6 +297,31 @@ voirPlusButtonsTab.forEach(button => {
     });
     columns.forEach(col => {
       col.style.flexDirection ="row";
+    });
+    voirMoinsTab.forEach(element => {
+      element.style.display = "flex";
+    });
+  });
+});
+
+const voirMoinsButtonsTab = document.querySelectorAll('.btn-voir-moins-tab');
+
+voirMoinsButtonsTab.forEach(button => {
+  button.addEventListener('click', () => {
+    movieGrid.forEach(grid => {
+      grid.style.flexDirection ="row";
+    });
+    columns.forEach(col => {
+      col.style.flexDirection ="column";
+    });
+    hiddenElements2.forEach(element => {
+      element.style.display = "none";
+    });
+    voirPlusButtonsTab.forEach(btn => {
+      btn.style.display = "flex";
+    });
+    voirMoinsTab.forEach(element => {
+      element.style.display = "none";
     });
   });
 });
