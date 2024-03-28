@@ -112,7 +112,6 @@ function fetchGenres() {
 function fetchMoviesByGenre(genreId, genreText) {
   const moviesUrl = `${BASE_URL}titles/?genre=${genreText}&page_size=10&sort_by=-imdb_score`;
 
-
   fetch(moviesUrl)
     .then(response => response.json())
     .then(data => {
@@ -120,62 +119,60 @@ function fetchMoviesByGenre(genreId, genreText) {
       const genreColumn2 = document.getElementById('genColumn2');
       const genreColumn3 = document.getElementById('genColumn3');
 
-      // Vider les colonnes existantes
-      genreColumn1.innerHTML = '';
-      genreColumn2.innerHTML = '';
-      genreColumn3.innerHTML = '';
+      // Vérifier si data.results est défini et s'il contient des éléments
+      if (data.results && data.results.length > 0) {
+        // Afficher les 6 premiers films de la catégorie sélectionnée
+        genreColumn1.classList.add('column');
+        genreColumn2.classList.add('column');
+        genreColumn3.classList.add('column');
 
-      // Afficher les 6 premiers films de la catégorie sélectionnée
-      genreColumn1.classList.add('column');
-      genreColumn2.classList.add('column');
-      genreColumn3.classList.add('column');
+        for (let i = 0; i < Math.min(6, data.results.length); i++) {
+          if (data.results[i].image_url) {
+            const imageUrl = data.results[i].image_url;
+            const movieTitle = data.results[i].title;
 
-      for (let i = 0; i < 6; i++) {
-        const imageUrl = data["results"][i]["image_url"];
+            const genreImg = document.createElement('img');
+            genreImg.src = imageUrl;
+            genreImg.onerror = function() {
+              genreImg.src='images/page-not-found.jpg'
+            };
 
-        const movieTitle = data["results"][i]["title"];
+            const overlay = document.createElement('div');
+            overlay.classList.add('overlay');
 
-        const genreImg = document.createElement('img');
-        genreImg.src = imageUrl;
-        genreImg.onerror = function() {
-          genreImg.src='images/page-not-found.jpg'
-        };
+            const title = document.createElement('h3');
+            title.textContent = movieTitle;
 
-        const overlay = document.createElement('div');
-        overlay.classList.add('overlay');
+            const detailsButton = document.createElement('button');
+            detailsButton.textContent = 'Détails';
+            fetch(data.results[i].url)
+              .then(response => response.json())
+              .then((data) => {
+                detailsButton.addEventListener('click', () => {
+                  openModal(data.id)
+                });
+              });
 
-        const title = document.createElement('h3');
-        title.textContent = movieTitle;
+            overlay.appendChild(title);
+            overlay.appendChild(detailsButton);
 
-        const detailsButton = document.createElement('button');
-        detailsButton.textContent = 'Détails';
-        fetch(data['results'][i]['url'])
-          .then(response => response.json())
-          .then((data) => {
-        detailsButton.addEventListener('click', () => {
-          openModal(data['id'])
-        });
-         
-      });
+            const column = i < 2 ? genreColumn1 : i < 4 ? genreColumn2 : genreColumn3;
 
-        overlay.appendChild(title);
-        overlay.appendChild(detailsButton);
+            const imageContainer = document.createElement('div');
+            imageContainer.classList.add('image-container');
+            imageContainer.appendChild(genreImg);
+            imageContainer.appendChild(overlay);
 
-        const column = i < 2 ? genreColumn1 : i < 4 ? genreColumn2 : genreColumn3;
-
-        const imageContainer = document.createElement('div');
-        imageContainer.classList.add('image-container');
-        imageContainer.appendChild(genreImg);
-        imageContainer.appendChild(overlay);
-
-        column.appendChild(imageContainer);
+            column.appendChild(imageContainer);
+          }
+        }
       }
     })
     .catch(error => {
       console.error('En attente de la séléction d\'un genre pour le chargement des images:', error);
     });
-
 }
+
 
 function openModal(id) {
 
