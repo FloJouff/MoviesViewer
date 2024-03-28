@@ -121,6 +121,10 @@ function fetchMoviesByGenre(genreId, genreText) {
 
       // Vérifier si data.results est défini et s'il contient des éléments
       if (data.results && data.results.length > 0) {
+          // Vider les colonnes existantes
+        genreColumn1.innerHTML = '';
+        genreColumn2.innerHTML = '';
+        genreColumn3.innerHTML = '';
         // Afficher les 6 premiers films de la catégorie sélectionnée
         genreColumn1.classList.add('column');
         genreColumn2.classList.add('column');
