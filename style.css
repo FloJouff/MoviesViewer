@@ -24,13 +24,11 @@ header {
   grid-template-columns: auto 1fr;
   align-items: center;
 }
-
 .header_logo {
   align-self: start;
   max-width: 100%;
   height: auto;
 }
-
 .main_title {
   font-size: 40px;
 }
@@ -39,7 +37,6 @@ header {
 main {
   padding: 10px;
 }
-
 .titre_H2 {
   font-weight: 600;
   font-size: 48px;
@@ -52,61 +49,30 @@ main {
   gap: 10px;
   font-size: 28px;
   font-weight: 200;
-  flex-direction: row;
+  flex-direction: column;
 }
-
 #top-movie-img {
-  height: auto;
-  width: 227px;
+  width: 298px;
+  align-self:center;
 }
-
 .top-movie-datas{
   display:flex;
   flex-direction: column;
 }
 #top-movie-title{
-  font-size: 48px;
+  font-size: 32px;
   font-weight: 600;
 }
-
 .btn-position {
   display: flex;
-  justify-content: flex-end;
-}
-
-/* Button Best movie*/
-.bestbtn {
-  background-color: rgb(250, 11, 11);
-  color: white;
-  border: none;
-  border-radius: 25px;
-  width: 166px;
-  height: 68px;
-  cursor: pointer;
-  padding: 10px;
-  transition: all 0.2s;
-  display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-button:hover {
-  background-color: #d8422e;
-  border: none;
-  color: white;
-}
-
-button:active {
-  transform: scale(1.05);
-  transition: transform 100ms ease-in-out;
-}
 
 /*--- Style pour les différentes categories---  */
 .movies-grid {
   display: flex;
-  justify-items: center;
 }
-
 .column {
   position: relative;
   display: flex;
@@ -123,7 +89,6 @@ button:active {
   height: 30%;
   background-color: rgba(0, 0, 0, 0.6);
 }
-
 .image-container {
   position: relative;
   height: auto;
@@ -131,35 +96,52 @@ button:active {
   display: flex;
   justify-items: center;
 }
-
 .overlay h3 {
   color: #ffffff;
   font-size: 24px;
   margin-bottom: 10px;
 }
-
 .overlay button:hover {
   background-color: #d8422e;
   border: none;
   color: white;
 }
-
 .overlay button:active {
   transform: scale(1.05);
   transition: transform 100ms ease-in-out;
 }
 
-/* Button */
-
-.btn, .overlay button {
+/* Buttons */
+.bestbtn {
+  background-color: rgb(250, 11, 11);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  width: 91px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button:hover {
+  background-color: #d8422e;
+  border: none;
+  color: white;
+}
+button:active {
+  transform: scale(1.05);
+  transition: transform 100ms ease-in-out;
+}
+.overlay button {
   background-color: rgb(19, 18, 18, 0.6);
   color: white;
   border: none;
-  border-radius: 50px;
+  border-radius: 25px;
   width: 65px;
   height: 30px;
   cursor: pointer;
-  padding: 10px;
   transition: all 0.2s;
   display: flex;
   justify-content: center;
@@ -168,7 +150,6 @@ button:active {
   bottom:0 ;
   right: 0;
 }
-
 .btn-voir-plus, .btn-voir-plus-tab, .btn-voir-moins, .btn-voir-moins-tab{
   background-color: rgb(250, 11, 11);
   color: white;
@@ -185,11 +166,9 @@ button:active {
 }
 
 /* Menu déroulant */
-/* Styles pour le menu déroulant */
 .menu_genres{
   display: flex;
 }
-
 .genres select {
   padding: 8px;
   font-size: 16px;
@@ -199,7 +178,6 @@ button:active {
   color: #000000;
   width: 200px;
 }
-
 .genres select option {
   padding: 8px;
   list-style-type: none;
@@ -216,7 +194,6 @@ button:active {
   display:none;
   z-index: 9999;
 }
-
 .modal-content {
   display: flex;
   flex-direction: column;
@@ -226,13 +203,11 @@ button:active {
   max-height: auto;
   border-radius: 5px;
 }
-
 .data-img{
   display:flex;
   flex-direction: row;
   justify-content: space-between;
 }
-
 .modalImg{
   display:flex;
   flex-direction: row-reverse;
@@ -244,7 +219,6 @@ button:active {
   margin-right: 10px;
   width: 227px;
 }
-
 .modal-content h3 {
   font-size: 24px;
 }
@@ -254,6 +228,7 @@ button:active {
   margin-left: 30px;
   margin-right: 40%;
 }
+
 /* The Close Button */
 .modal-btn{
   display: flex;
@@ -272,7 +247,6 @@ button:active {
   justify-content: center;
   align-items: center;
 }
-
 .close:hover,
 .close:focus {
   color: black;
@@ -314,31 +288,6 @@ button:active {
     }
     .genres{
       text-align: center;
-    }
-    .top_movie_infos {
-      display: flex;
-      flex-direction: column;
-    }
-    #top-movie-img {
-      width: 298px;
-      height: auto;
-      align-self:center;
-    }
-    #top-movie-title{
-      font-size: 32px;
-      font-weight: 600;
-      grid-row: 2;
-    }
-    #top-movie-description{
-      grid-row: 3;
-    }
-    .btn-position{
-      display: flex;
-      justify-content: center;
-    }
-    #myModalBtn{
-      width: 91px;
-      height: 40px;
     }
     #best-movies-column2, #best-movies-column3, #comedy-column2, #comedy-column3, #Sci-Fi-column2, #Sci-Fi-column3, #genColumn2, #genColumn3{
       display: none;
@@ -382,6 +331,21 @@ button:active {
     width: 90%;
     height: 30%;
   }
+  .btn-position{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .top_movie_infos {
+    display: flex;
+    flex-direction: row;
+  }
+  #top-movie-title{
+    font-size: 48px;
+    font-weight: 600;
+  }
+  #top-movie-img {
+    width: 227px;
+  }
 }
 
 /* Version ordinateur */
@@ -401,5 +365,24 @@ button:active {
   }
   .movies-grid img {
     width:300px ;
+  }
+  .btn-position{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .top_movie_infos {
+    display: flex;
+    flex-direction: row;
+  }
+  #top-movie-title{
+    font-size: 48px;
+    font-weight: 600;
+  }
+  #top-movie-img {
+    width: 227px;
+  }
+  .bestbtn {
+  width: 166px;
+  height: 68px;
 }
 }

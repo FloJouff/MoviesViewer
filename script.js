@@ -20,8 +20,8 @@ function getBestMovie() {
     .then(response => response.json())
     .then((data) => {
       bestMovieTitle.innerHTML = data["title"];
-      bestMovieImg.src = data["image_url"];      
-      bestMovieDescription.innerHTML = data["description"];
+      bestMovieImg.src = data["image_url"]; 
+      bestMovieDescription.innerHTML = data["long_description"];
       bestBtn.addEventListener('click', () => {
         openModal(data['id'])
       });
@@ -47,6 +47,7 @@ function fetchMovies(categorie, url) {
 
         const img = document.createElement('img');
         img.src = imageUrl;
+        img.alt = "Movie Poster"
         
         const overlay = document.createElement('div');
         overlay.classList.add('overlay');
@@ -137,6 +138,7 @@ function fetchMoviesByGenre(genreId, genreText) {
 
             const genreImg = document.createElement('img');
             genreImg.src = imageUrl;
+            genreImg.alt = "Movie Poster"
             genreImg.onerror = function() {
               genreImg.src='images/page-not-found.jpg'
             };
