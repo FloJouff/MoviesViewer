@@ -101,13 +101,15 @@ function fetchGenres() {
         const selectedGenreId = categoriesSelect.value;
         const selectedGenreText = categoriesSelect.options[categoriesSelect.selectedIndex].textContent;
         fetchMoviesByGenre(selectedGenreId ,selectedGenreText);
-      });
-    
+      });      
+      
     })
     .catch(error => {
       console.error('Une erreur s\'est produite lors du chargement des genres de films:', error);
     });
 }
+
+
 
 // Récupérer les 6 premiers films de la catégorie sélectionnée depuis l'API
 function fetchMoviesByGenre(genreId, genreText) {
@@ -175,7 +177,7 @@ function fetchMoviesByGenre(genreId, genreText) {
       }
     })
     .catch(error => {
-      console.error('En attente de la séléction d\'un genre pour le chargement des images:', error);
+      console.error('Une erreur s\'est produite lors du chargement des genres de films:', error);
     });
 }
 
@@ -192,7 +194,11 @@ function openModal(id) {
   closebtn.onclick = function () {
       modal.style.display = "none";
   }
-
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal){
+    modal.style.display = "none";
+  }
+});
 }
 
 function fetchModalData(id) {
@@ -233,10 +239,10 @@ function fetchModalData(id) {
       })
 }
 
-// Sélectionnez tous les boutons "Voir plus"
+// Sélectionnez tous les boutons "Voir plus" et "Voir Moins"
 const voirPlusButtonsMob = document.querySelectorAll('.btn-voir-plus');
 const hiddenElements = document.querySelectorAll('.hiddenElements');
-const hiddenElements2 = document.querySelectorAll('.hiddenElements2');
+const hiddenTablette = document.querySelectorAll('.hiddenTablette');
 const movieGrid = document.querySelectorAll('.movies-grid');
 const voirMoins = document.querySelectorAll('.btn-container-moins');
 const voirMoinsTab = document.querySelectorAll('.btn-container-moins-tab')
@@ -246,9 +252,6 @@ const columns = document.querySelectorAll('.column');
 voirPlusButtonsMob.forEach(button => {
   button.addEventListener('click', () => {
     hiddenElements.forEach(element => {
-      element.style.display = "flex";
-    });
-    hiddenElements2.forEach(element => {
       element.style.display = "flex";
     });
     voirPlusButtonsMob.forEach(btn => {
@@ -270,9 +273,6 @@ voirMoinsButtonsMob.forEach(button => {
     hiddenElements.forEach(element => {
       element.style.display = "none";
     });
-    hiddenElements2.forEach(element => {
-      element.style.display = "none";
-    });
     voirPlusButtonsMob.forEach(btn => {
       btn.style.display = "flex";
     });
@@ -289,7 +289,7 @@ const voirPlusButtonsTab = document.querySelectorAll('.btn-voir-plus-tab');
 
 voirPlusButtonsTab.forEach(button => {
   button.addEventListener('click', () => {
-    hiddenElements2.forEach(element => {
+    hiddenTablette.forEach(element => {
       element.style.display = "flex";
     });
     voirPlusButtonsTab.forEach(btn => {
@@ -317,7 +317,7 @@ voirMoinsButtonsTab.forEach(button => {
     columns.forEach(col => {
       col.style.flexDirection ="column";
     });
-    hiddenElements2.forEach(element => {
+    hiddenTablette.forEach(element => {
       element.style.display = "none";
     });
     voirPlusButtonsTab.forEach(btn => {

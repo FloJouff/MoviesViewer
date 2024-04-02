@@ -202,16 +202,17 @@ button:active {
   padding: 10px;
   max-height: auto;
   border-radius: 5px;
+  overflow-y: auto;
+  max-height: 70vh;
 }
 .data-img{
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 }
 .modalImg{
   display:flex;
-  flex-direction: row-reverse;
-  justify-content: end;
+  justify-content: center;
 }
 #modalImage {
   border-radius: 10px;
@@ -302,7 +303,7 @@ button:active {
   }
 
 /* Version tablette */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   .bestbtn {
     width: 123px;
     height: 49px;
@@ -313,7 +314,7 @@ button:active {
   #best-movies-column3, #comedy-column3, #Sci-Fi-column3, #genColumn3 {
     display: none;
   }
-  .hiddenElements2 {
+  .hiddenTablette {
     display:flex;
     flex-direction: column;
   }
@@ -346,10 +347,20 @@ button:active {
   #top-movie-img {
     width: 227px;
   }
+  .data-img{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .modalImg{
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: end;
+  }
 }
 
 /* Version ordinateur */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .overlay {
     position: absolute;
     top: 15%;
@@ -359,6 +370,16 @@ button:active {
   }
   .image-container{
     width:fit-content;
+  }
+  .data-img{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .modalImg{
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: end;
   }
   .btn-container, .btn-container-tab, .btn-container-moins, .btn-container-moins-tab {
     display:none;
