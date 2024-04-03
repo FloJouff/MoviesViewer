@@ -100,6 +100,8 @@ function fetchGenres() {
       categoriesSelect.addEventListener('change', () => {
         const selectedGenreId = categoriesSelect.value;
         const selectedGenreText = categoriesSelect.options[categoriesSelect.selectedIndex].textContent;
+        const voirPlusGenre = document.querySelector('.voirPlusGenre');
+        voirPlusGenre.style.display = "flex";
         fetchMoviesByGenre(selectedGenreId ,selectedGenreText);
       });      
       
@@ -240,40 +242,58 @@ function fetchModalData(id) {
 }
 
 // Sélectionnez tous les boutons "Voir plus" et "Voir Moins"
-const voirPlusButtonsMob = document.querySelectorAll('.btn-voir-plus');
+const voirPlusButtons = document.querySelectorAll('.btn-voir-plus');
 const hiddenElements = document.querySelectorAll('.hiddenElements');
 const hiddenTablette = document.querySelectorAll('.hiddenTablette');
 const movieGrid = document.querySelectorAll('.movies-grid');
 const voirMoins = document.querySelectorAll('.btn-container-moins');
-const voirMoinsTab = document.querySelectorAll('.btn-container-moins-tab')
-const voirPlusTab = document.querySelectorAll('.btn-container-tab');
 const columns = document.querySelectorAll('.column');
 
-voirPlusButtonsMob.forEach(button => {
+voirPlusButtons.forEach(button => {
   button.addEventListener('click', () => {
-    hiddenElements.forEach(element => {
-      element.style.display = "flex";
-    });
-    voirPlusButtonsMob.forEach(btn => {
-      btn.style.display = "none";
-    });
-    movieGrid.forEach(grid => {
-      grid.style.flexDirection ="column";
-    });
-    voirMoins.forEach(element => {
-      element.style.display = "flex";
-    });
+    if (window.matchMedia('(max-width:768px)').matches) {
+
+      hiddenElements.forEach(element => {
+        element.style.display = "flex";
+      });
+      voirPlusButtons.forEach(btn => {
+        btn.style.display = "none";
+      });
+      movieGrid.forEach(grid => {
+        grid.style.flexDirection ="column";
+      });
+      voirMoins.forEach(element => {
+        element.style.display = "flex";
+      });
+    } else if (window.matchMedia('(min-width: 768px) and (max-width: 1024px)').matches) {
+      hiddenTablette.forEach(element => {
+        element.style.display = "flex";
+      });
+      voirPlusButtons.forEach(btn => {
+        btn.style.display = "none";
+      });
+      movieGrid.forEach(grid => {
+        grid.style.flexDirection ="column";
+      });
+      columns.forEach(col => {
+        col.style.flexDirection ="row";
+      });
+      voirMoins.forEach(element => {
+        element.style.display = "flex";
+      });
+    }
   });
 });
 
-const voirMoinsButtonsMob = document.querySelectorAll('.btn-voir-moins');
+const voirMoinsButtons = document.querySelectorAll('.btn-voir-moins');
 
-voirMoinsButtonsMob.forEach(button => {
+voirMoinsButtons.forEach(button => {
   button.addEventListener('click', () => {
+    if (window.matchMedia('(max-width:768px)').matches) {
     hiddenElements.forEach(element => {
       element.style.display = "none";
     });
-    voirPlusButtonsMob.forEach(btn => {
+    voirPlusButtons.forEach(btn => {
       btn.style.display = "flex";
     });
     movieGrid.forEach(grid => {
@@ -282,35 +302,7 @@ voirMoinsButtonsMob.forEach(button => {
     voirMoins.forEach(element => {
       element.style.display = "none";
     });
-  });
-});
-
-const voirPlusButtonsTab = document.querySelectorAll('.btn-voir-plus-tab');
-
-voirPlusButtonsTab.forEach(button => {
-  button.addEventListener('click', () => {
-    hiddenTablette.forEach(element => {
-      element.style.display = "flex";
-    });
-    voirPlusButtonsTab.forEach(btn => {
-      btn.style.display = "none";
-    });
-    movieGrid.forEach(grid => {
-      grid.style.flexDirection ="column";
-    });
-    columns.forEach(col => {
-      col.style.flexDirection ="row";
-    });
-    voirMoinsTab.forEach(element => {
-      element.style.display = "flex";
-    });
-  });
-});
-
-const voirMoinsButtonsTab = document.querySelectorAll('.btn-voir-moins-tab');
-
-voirMoinsButtonsTab.forEach(button => {
-  button.addEventListener('click', () => {
+  } else if (window.matchMedia('(min-width: 768px) and (max-width: 1024px)').matches) {
     movieGrid.forEach(grid => {
       grid.style.flexDirection ="row";
     });
@@ -320,12 +312,13 @@ voirMoinsButtonsTab.forEach(button => {
     hiddenTablette.forEach(element => {
       element.style.display = "none";
     });
-    voirPlusButtonsTab.forEach(btn => {
+    voirPlusButtons.forEach(btn => {
       btn.style.display = "flex";
     });
-    voirMoinsTab.forEach(element => {
+    voirMoins.forEach(element => {
       element.style.display = "none";
     });
+  }
   });
 });
 
