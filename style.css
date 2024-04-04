@@ -351,16 +351,16 @@ button:active {
   #top-movie-img {
     width: 227px;
   }
-  .data-img{
+  /* .data-img{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-  }
-  .modalImg{
+  } */
+  /* .modalImg{
     display:flex;
     flex-direction: row-reverse;
     justify-content: end;
-  }
+  } */
 }
 
 /* Version ordinateur */
