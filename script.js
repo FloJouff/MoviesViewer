@@ -322,9 +322,22 @@ voirMoinsButtons.forEach(button => {
   });
 });
 
+const modalDescription = document.getElementById('modalDescription');
+const movieInfos = document.querySelector('.movie-infos');
+const modalImg = document.querySelector('.modalImg');
+
+function rearrangeModal() {
+  if (window.innerWidth <= 1024) { 
+    movieInfos.parentNode.insertBefore(modalDescription, modalImg);
+  } else {
+    movieInfos.parentNode.insertBefore(modalImg, movieInfos.nextSibling);
+  }
+}
+
 getBestMovie()
 fetchMovies("best-movies", BEST_MOVIE_URL)
 fetchMovies("comedy", COMEDY_URL)
 fetchMovies("Sci-Fi", SCI_FI_URL)
 fetchGenres()
 fetchMoviesByGenre()
+rearrangeModal()
